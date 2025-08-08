@@ -1,0 +1,97 @@
+1️⃣ Creating complex configuration objects
+Example: Setting up a database connection or API client
+
+Many optional parameters (timeouts, SSL options, pooling)
+
+Defaults for most, but some required
+
+Builder makes it easy to only set what you need
+
+java
+Copy
+Edit
+DatabaseConfig config = new DatabaseConfig.Builder("db-url", "username", "password")
+    .sslEnabled(true)
+    .maxConnections(20)
+    .timeout(5000)
+    .build();
+
+
+2️⃣ Building UI components
+Example: Constructing a custom dialog box or form in Java Swing/Android
+
+You may want to set title, buttons, icons, callbacks, etc., but not all are required
+
+
+Dialog dialog = new Dialog.Builder("Confirm Delete")
+    .message("Are you sure?")
+    .icon("warning.png")
+    .positiveButton("Yes", onYesClick)
+    .negativeButton("Cancel", onCancelClick)
+    .build();
+
+
+3️⃣ Constructing immutable domain objects
+Example: Order in an e-commerce system
+
+Required: orderId, customerId, items
+
+Optional: discount, gift wrap, delivery instructions
+
+Immutable to ensure consistency after creation
+
+Order order = new Order.Builder(1001, 2005, itemsList)
+    .discount(10)
+    .giftWrap(true)
+    .deliveryInstructions("Leave at front desk")
+    .build();
+
+
+4️⃣ Parsing external data into objects
+Example: Reading JSON/XML where not all fields are always present
+
+Builder lets you create objects with only the parsed fields without giant constructors
+
+
+
+5️⃣ Complex object creation in game development
+Example: Creating characters or levels with many optional attributes
+
+Builder can set only what’s relevant, skipping tons of constructor overloads
+
+
+Character hero = new Character.Builder("Knight")
+    .health(100)
+    .armor(50)
+    .weapon("Sword")
+    .specialAbility("Shield Block")
+    .build();
+
+
+6️⃣ Fluent APIs for better readability
+Builder pattern inherently supports method chaining → reads like natural language
+Example: HTTP request building (like OkHttp or RestTemplate style APIs)
+
+
+HttpRequest request = new HttpRequest.Builder("https://api.example.com/data")
+    .method("POST")
+    .header("Authorization", "Bearer token")
+    .body("{ \"name\": \"John\" }")
+    .timeout(3000)
+    .build();
+
+
+7️⃣ Avoiding constructor telescoping
+If you have many parameters with defaults, using multiple overloaded constructors becomes messy.
+Builder replaces:
+
+
+Edit
+Car c1 = new Car("V8", "Red");
+Car c2 = new Car("V8", "Red", true);
+Car c3 = new Car("V8", "Red", true, true);
+with:
+
+
+Edit
+Car c = new Car.Builder("V8").color("Red").sunroof(true).gps(true).build();
