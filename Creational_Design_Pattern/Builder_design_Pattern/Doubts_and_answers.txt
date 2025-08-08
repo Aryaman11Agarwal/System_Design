@@ -1,0 +1,12 @@
+1. Why do we need builder design pattern , why can't we just use getters and setters?
+
+Ans. Because there can be some variables in the class which are final and need to be created at the time of creation of object only, so
+     they must be sent through a builder, if we don't use builder and pass them in constructor only then in PR reviews it will become         	difficult to understand which value is for which variable.
+
+2. Why do we make a final static builder class in the class which it is building?
+Ans. Because the constructors will be private, and only a nested static class can access those.
+
+
+3. What will happen to the attrbutes not setted by builder?
+
+Ans. They will have a default value initially set in the builder., also there will be no final attributes in builder.
