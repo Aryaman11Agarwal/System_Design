@@ -1,0 +1,21 @@
+The issue with this approach is that every part of the application (like Application, UserService, etc.) creates a new instance of the Logger class when they need to log something. This creates several problems:
+
+1. Multiple Instances of Logger:
+
+○ If different parts of the system are creating multiple instances of the Logger, it leads to inefficient resource usage. If you are logging to a file, for example, each logger might try to access and write to the file at the same time, leading to potential conflicts or overhead. 📝⚠️
+
+‍
+
+2. Inconsistent Logging:
+
+○ With multiple loggers, you might end up with log messages spread across different log files or inconsistent output in the same log file, as each instance of the Logger might manage its own logging output. This makes debugging and monitoring harder. 🔍📉
+
+‍
+
+3. Difficulty Managing State:
+
+○ If the logger has state-related data (e.g., which log file it writes to, configuration settings, etc.), creating multiple instances means that each logger could have a different state. This would cause inconsistency in how logs are managed and stored. ⚖️💼
+
+‍
+
+If we wanted to make sure there was only one logger, we would have to check for the existence of an existing instance of the Logger each time we want to use it, and that would make the code ugly and complex. You’d end up with a lot of extra code to track and manage the instance. 🤦‍♂️🛠️
