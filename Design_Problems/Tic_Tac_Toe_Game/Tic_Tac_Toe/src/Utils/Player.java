@@ -8,7 +8,7 @@ public class Player {
     private PlayerStrategy playerStrategy;
     private Symbol symbol;
 
-    Player(PlayerStrategy playerStrategy,Symbol symbol){
+    public Player(PlayerStrategy playerStrategy,Symbol symbol){
         this.playerStrategy=playerStrategy;
         this.symbol=symbol;
     }

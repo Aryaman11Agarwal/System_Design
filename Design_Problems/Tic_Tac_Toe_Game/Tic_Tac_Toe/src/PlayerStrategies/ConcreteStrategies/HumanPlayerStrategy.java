@@ -12,7 +12,7 @@ public class HumanPlayerStrategy implements PlayerStrategy {
     private Scanner scanner;
     private String name;
 
-    HumanPlayerStrategy(String name){
+    public HumanPlayerStrategy(String name){
         this.name=name;
         scanner=new Scanner(System.in);
     }

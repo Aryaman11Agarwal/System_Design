@@ -8,7 +8,7 @@ public class GameContext {
 
     private GameState currentState;
 
-    GameContext(){
+    public GameContext(){
         currentState=new XChanceState();
     }
 
@@ -20,4 +20,14 @@ public class GameContext {
     public void setCurrentState(GameState gameState){
         this.currentState=gameState;
     }
+
+    public boolean isGameOver(){
+        return currentState.hasWon();
+    }
+
+    public GameState getCurrentState(){
+        return currentState;
+    }
+
+
 }

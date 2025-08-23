@@ -9,7 +9,7 @@ public class Board {
     private int rows,cols;
 
 
-    Board(int rows,int cols){
+    public Board(int rows,int cols){
         this.rows=rows;
         this.cols=cols;
 
