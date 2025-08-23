@@ -16,7 +16,7 @@ public class XChanceState implements GameState {
 
         }
 
-        context.setCurrentState(new XChanceState());
+        context.setCurrentState(new OChanceState());
     }
 
     public boolean hasWon(){

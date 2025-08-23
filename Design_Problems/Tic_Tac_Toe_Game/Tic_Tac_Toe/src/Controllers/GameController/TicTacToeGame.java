@@ -38,6 +38,20 @@ public class TicTacToeGame implements BoardGames {
             // checks game state for win/draw
             board.checkGameState(gameContext, currentPlayer);
             switchPlayer();
+//            GameContext context=gameContext;
+//            if(context.getCurrentState() instanceof XWonState){
+//                System.out.println("XWON state");
+//            }
+//            if(context.getCurrentState() instanceof XChanceState){
+//                System.out.println("XChance state");
+//            }
+//            if(context.getCurrentState() instanceof OWonState){
+//                System.out.println("OWON state");
+//            }
+//            if(context.getCurrentState() instanceof OChanceState){
+//                System.out.println("O CHance state");
+//            }
+
         } while (!gameContext.isGameOver());
         announceResult();
     }
