@@ -54,7 +54,7 @@ class LoggerSynchronisedEfficient{
     }
 
 
-    public static synchronized LoggerSynchronisedEfficient getLogger(){
+    public static LoggerSynchronisedEfficient getLogger(){
 
         if(loggerSynchronisedEfficient==null){
              synchronized (LoggerSynchronisedEfficient.class){
