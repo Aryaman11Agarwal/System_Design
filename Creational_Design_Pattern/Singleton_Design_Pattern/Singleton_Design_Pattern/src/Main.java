@@ -48,7 +48,7 @@ class LoggerSynchronised{
 
 class LoggerSynchronisedEfficient{
 
-    private static LoggerSynchronisedEfficient loggerSynchronisedEfficient=null;
+    private static volatile LoggerSynchronisedEfficient loggerSynchronisedEfficient=null;
     private LoggerSynchronisedEfficient(){
 
     }
@@ -67,6 +67,8 @@ class LoggerSynchronisedEfficient{
         }
 
         return loggerSynchronisedEfficient;
+
+       //checkout this :  https://www.cs.umd.edu/~pugh/java/memoryModel/DoubleCheckedLocking.html
     }
 }
 
