@@ -12,7 +12,7 @@ public class ProductFactory {
 
     Scanner sc;
 
-    ProductFactory(){
+    public ProductFactory(){
         sc=new Scanner(System.in);
     }
 
@@ -24,18 +24,36 @@ public class ProductFactory {
                 System.out.println("Enter the warrany period of the electronics product");
                 int warranty=sc.nextInt();
 
-                return new ElectronicsProduct(sku,name,quantity,price,warranty);
+                return new ElectronicsProduct.
+                        Builder().
+                        setName(name).
+                        setSku(sku).
+                        setPrice(price).
+                        setQuantity(quantity).
+                        setWarranty(warranty).
+                        build();
 
             }
             case CLOTHING:{
-                return new ClothingProduct(sku,name,quantity,price);
+                return new ClothingProduct.
+                        Builder().
+                        setName(name).
+                        setPrice(price).
+                        setSku(sku).
+                        setQuantity(quantity).
+                        build();
             }
 
             case GROCERY:{
 
                 System.out.println("Enter the expiry date of the grocery product");
                 String  expiryDate=sc.nextLine();
-                return new GroceryProduct(sku,name,quantity,price,expiryDate);
+                return new GroceryProduct.Builder().
+                        setName(name).setPrice(price).
+                        setName(name).
+                        setExpiryDate(expiryDate).
+                        setQuantity(quantity).
+                        build();
             }
 
             default:{
