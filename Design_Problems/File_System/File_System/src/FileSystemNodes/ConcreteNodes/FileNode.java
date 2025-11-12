@@ -34,4 +34,24 @@ public class FileNode extends FileSystemNode {
     public void setName(String name) {
         super.setName(name);
     }
+
+    @Override
+    public boolean hasChild(String name) {
+        return false;
+    }
+
+    @Override
+    public FileSystemNode getChild(String name) {
+        return null;
+    }
+
+    @Override
+    public void removeChild(FileSystemNode fileSystemNode) {
+
+    }
+
+    @Override
+    public void addChild(FileSystemNode fileSystemNode) {
+
+    }
 }

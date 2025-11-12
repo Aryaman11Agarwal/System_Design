@@ -29,7 +29,7 @@ public class DirectoryNode extends FileSystemNode {
     public void setName(String name) {
         super.setName(name);
     }
-
+    @Override
     public boolean hasChild(String name){
       return  children.containsKey(name);
     }
@@ -46,8 +46,18 @@ public class DirectoryNode extends FileSystemNode {
 
     }
 
+    @Override
+    public FileSystemNode getChild(String name) {
+        return children.get(name);
+    }
 
+    @Override
+    public void removeChild(FileSystemNode fileSystemNode) {
+        children.remove(fileSystemNode.getName());
+    }
 
-
-
+    @Override
+    public void addChild(FileSystemNode fileSystemNode) {
+        children.put(fileSystemNode.getName(),fileSystemNode);
+    }
 }
