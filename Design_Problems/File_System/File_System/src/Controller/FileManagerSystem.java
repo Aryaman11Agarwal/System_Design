@@ -72,6 +72,10 @@ public class FileManagerSystem {
 
         String component = pathComponents[pathComponents.length - 1];
 
+        if(component.isEmpty()) return false;
+
+        if(crawler.hasChild(component)) return false;
+
         if (crawler.isFile()) return false;
 
         // Decide whether it's a file or directory by presence of '.'
@@ -91,7 +95,7 @@ public class FileManagerSystem {
 
         if(path.equals("/")) return false;
 
-        
+
         FileSystemNode secondLastNode = getSecondLastNode(path);
         FileSystemNode lastNode = getLastNode(path);
 
